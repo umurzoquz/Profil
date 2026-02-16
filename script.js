@@ -14,13 +14,20 @@ const modal = document.getElementById('imageModal');
 const modalImage = document.getElementById('modalImage');
 const closeModal = document.querySelector('.close-modal');
 
-// Image click to open modal
-document.querySelectorAll('.review-img').forEach(img => {
-    img.addEventListener('click', function() {
-        modal.style.display = 'block';
-        modalImage.src = this.getAttribute('data-full');
-        document.body.style.overflow = 'hidden';
-    });
+// Image click to open modal (delegated for reliability)
+function openImageModal(src) {
+    if (!modal || !modalImage || !src) return;
+    modal.style.display = 'block';
+    modalImage.src = src;
+    document.body.style.overflow = 'hidden';
+}
+
+document.addEventListener('click', function (e) {
+    const img = e.target.closest ? e.target.closest('.review-img') : null;
+    if (img) {
+        const src = img.getAttribute('data-full') || img.src;
+        openImageModal(src);
+    }
 });
 
 // Close modal
@@ -29,7 +36,14 @@ function closeImageModal() {
     document.body.style.overflow = 'auto';
 }
 
-closeModal.addEventListener('click', closeImageModal);
+if (closeModal) {
+    closeModal.addEventListener('click', closeImageModal);
+}
+
+// allow clicking the modal image to close as well
+if (modalImage) {
+    modalImage.addEventListener('click', closeImageModal);
+}
 
 // Close modal when clicking outside image
 modal.addEventListener('click', function(e) {
