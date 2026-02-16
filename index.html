@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="uz">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,17 +8,22 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
     <div class="container">
         <div class="profile-card">
             <!-- Profile Header -->
             <div class="header-section">
                 <div class="profile-image">
-                    <img src="photo_5201865158723499807_c.jpg" alt="Profil Rasmi">
+                    <img src="photo_5201865158723499807_c.jpg" alt="Profil Rasmi" class="review-img"
+                        data-full="photo_5201865158723499807_c.jpg">
+                    <div class="premium-badge">
+                        <i class="fas fa-crown"></i>
+                    </div>
                 </div>
                 <h1 class="profile-name">Muhoyyo Alisherovna</h1>
-                <p class="profile-bio">✨ Erkin Ijodkor | 🎬 Tayyorlash</p>
-                <p class="profile-description">🎬 Tug'ilgan kun, Bayramlar, Dil isxoralar uchun professional videolar</p>
+                <p class="profile-bio">✨ Erkin Ijodkor </p>
+                <p class="profile-description">🎬 Tug'ilgan kun, Bayramlar, Dil isxoralar uchun professional kantent</p>
             </div>
 
             <!-- Social Links -->
@@ -30,7 +36,7 @@
                     <a href="https://t.me/Qalb01_1" target="_blank" class="social-link telegram">
                         <i class="fab fa-telegram"></i>
                         <span>Telegram</span>
-                        <small>Akkaunt</small>
+                        <small>profil</small>
                     </a>
                     <a href="https://t.me/Qadrdonlarga_tabrik_01" target="_blank" class="social-link telegram-group">
                         <i class="fab fa-telegram"></i>
@@ -60,18 +66,24 @@
             <div class="contact-section">
                 <h3>🎬 Xizmatlar</h3>
                 <div class="services-list">
-                    <div class="service-item">
+                    <a class="service-item" href="https://t.me/Qadrdonlarga_tabrik_01" target="_blank"
+                        title="Tug'ilgan kunlar uchun - Telegram kanal">
                         <span class="service-icon">🎂</span>
                         <span class="service-text">Tug'ilgan kunlar uchun</span>
-                    </div>
-                    <div class="service-item">
+                        <i class="fab fa-telegram" style="margin-left:8px;color:#0088cc;font-size:14px"></i>
+                    </a>
+                    <a class="service-item" href="https://t.me/Qadrdonlarga_tabrik_01" target="_blank"
+                        title="Bayramlar uchun - Telegram kanal">
                         <span class="service-icon">🎉</span>
                         <span class="service-text">Bayramlar uchun</span>
-                    </div>
-                    <div class="service-item">
+                        <i class="fab fa-telegram" style="margin-left:8px;color:#0088cc;font-size:14px"></i>
+                    </a>
+                    <a class="service-item" href="https://t.me/Qadrdonlarga_tabrik_01" target="_blank"
+                        title="Dil isxoralar uchun - Telegram kanal">
                         <span class="service-icon">💕</span>
                         <span class="service-text">Dil isxoralar uchun</span>
-                    </div>
+                        <i class="fab fa-telegram" style="margin-left:8px;color:#0088cc;font-size:14px"></i>
+                    </a>
                 </div>
             </div>
 
@@ -88,22 +100,26 @@
             <!-- Reviews Section -->
             <div class="reviews-section">
                 <h3>😍 Xizmatlarimizga Fikirlar</h3>
-                
+                <p>Namuna</p>
                 <!-- Gallery/Images Section -->
                 <div class="gallery-container">
                     <h4>📸 Fikrlar (Rasmlar)</h4>
                     <div class="gallery-grid">
                         <div class="gallery-item">
-                            <img src="photo_5228808038330865608_y.jpg" alt="Fikr 1" class="review-img" data-full="photo_5228808038330865608_y.jpg">
+                            <img src="photo_5228808038330865608_y.jpg" alt="Fikr 1" class="review-img"
+                                data-full="photo_5228808038330865608_y.jpg">
                         </div>
                         <div class="gallery-item">
-                            <img src="photo_5228808038330865614_y.jpg" alt="Fikr 2" class="review-img" data-full="photo_5228808038330865614_y.jpg">
+                            <img src="photo_5228808038330865614_y.jpg" alt="Fikr 2" class="review-img"
+                                data-full="photo_5228808038330865614_y.jpg">
                         </div>
                         <div class="gallery-item">
-                            <img src="photo_5228808038330865616_y.jpg" alt="Fikr 3" class="review-img" data-full="photo_5228808038330865616_y.jpg">
+                            <img src="photo_5228808038330865616_y.jpg" alt="Fikr 3" class="review-img"
+                                data-full="photo_5228808038330865616_y.jpg">
                         </div>
                     </div>
                 </div>
+
 
                 <!-- Audio Section -->
                 <div class="audio-container">
@@ -142,15 +158,6 @@
                 <span class="tag">#DilIsxoralar</span>
             </div>
 
-            <!-- Image Modal Popup -->
-            <div id="imageModal" class="modal">
-                <div class="modal-content">
-                    <span class="close-modal">&times;</span>
-                    <img id="modalImage" src="" alt="Kattalashtirish">
-                </div>
-            </div>
-
-
             <!-- Footer -->
             <div class="footer">
                 <p>📱 +998 94 762 01 60 | @muhoyyo_01</p>
@@ -167,8 +174,16 @@
                 <i class="fab fa-telegram"></i>
             </a>
         </div>
+        <!-- Image Modal Popup (moved outside .profile-card to avoid clipping) -->
+        <div id="imageModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <img id="modalImage" src="" alt="Kattalashtirish">
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
 </body>
+
 </html>
